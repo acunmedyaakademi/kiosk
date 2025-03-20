@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './styles/App.css'
 import "./styles/reset.css"
 import Order from './components/Order';
-
 import Header from './components/Header';
 import { createClient } from '@supabase/supabase-js';
 
