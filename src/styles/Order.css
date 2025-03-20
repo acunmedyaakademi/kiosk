@@ -98,6 +98,7 @@
     }
     .onclic {
       width: 40px;
+      margin-left: 130px;
       border-color:#bbbbbb;
       border-width:3px;
       font-size:0;

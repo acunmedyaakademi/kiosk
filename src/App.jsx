@@ -11,14 +11,11 @@ console.log(supabase);
 
 function App() {
   const [count, setCount] = useState(0);
-
-
-
-
+  
   return (
     <>
-    <Header />
-    <Order />
+      <Header />
+      <Order />
     </>
   )
 }
