@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import "./reset.css"
+import './styles/App.css'
+import "./styles/reset.css"
 
 function App() {
   const [count, setCount] = useState(0);
