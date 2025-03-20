@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  background-color: transparent;
+  h1 {
+    color: #ccbbc2;
+  }
+  select {
+    border: none;
+    background: transparent;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
