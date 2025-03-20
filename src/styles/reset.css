@@ -15,6 +15,7 @@ body {
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   font-family: 'Open Sans';
+  background-color: #FFF8E6;
 }
 
 /* 5. Improve media defaults */
