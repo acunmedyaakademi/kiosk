@@ -9,6 +9,7 @@ const supabase = createClient("https://sxkbwpcardxrhfuqzvzc.supabase.co", "eyJhb
 
 console.log(supabase);
 
+
 function App() {
   const [count, setCount] = useState(0);
   
