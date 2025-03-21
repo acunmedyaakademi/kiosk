@@ -1,0 +1,16 @@
+.products-area {
+  display: grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap: 5px;
+}
+
+.product {
+  border: 1px solid yellowgreen;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.product img{
+  width: 250px;
+  object-fit: cover;
+}
