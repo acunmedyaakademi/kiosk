@@ -17,10 +17,10 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      <div className='grid'>
+      
       <Products />
       <Order />
-      </div>
+     
     </div>
   )
 }

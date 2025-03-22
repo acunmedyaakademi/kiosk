@@ -3,52 +3,64 @@ import supabase from "../js/supabaseClient"
 import "../styles/Products.css"
 
 export default function Products() {
-
-  const [products,setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState([]);
 
   useEffect(() => {
-    
     async function getData() {
       let { data, error } = await supabase.from('products').select('*');
-      if(error !== null) {
+      if (error !== null) {
         console.log(error.message)
         return
       }
       setProducts(data);
-      console.log(products)
-    }  
+    }
     const channels = supabase.channel('insert').on(
       'postgres_changes',
       { event: 'INSERT', schema: 'public', table: 'products' },
       payload => {
-        console.log(payload.new);
         setProducts(prev => [...prev, payload.new]);
       }
     )
-    .subscribe();
+      .subscribe();
 
-  getData();
+    getData();
 
-  return () => supabase.removeChannel(channels);
-        
-  },[])
+    return () => supabase.removeChannel(channels);
+
+  }, [])
+
+
+  function handleProduct(product) {
+    if (selectedProduct.find(x => x.id === product.id)) {
+      selectedProduct.find(x => x.id === product.id).count++
+      setSelectedProduct([...selectedProduct]);
+    } else {
+      setSelectedProduct([...selectedProduct, { ...product, count: 1 }])
+    }
+    console.log(selectedProduct);
+
+  }
 
 
 
-  return(
+  return (
+    <>
+    <h2>All Items</h2>
     <div className="products-area">
       {products.map(x => (
-       <div className="product">
-        <img src={x.img}/>
-        <div className="flex">
-        <h6>{x.name}</h6>
-        <span>{x.price}</span>
-        <div>
-          <button>+</button>
+        <div className="product">
+          <img src={x.img} />
+          <div>
+            <h6>{x.name}</h6>
+            <span>{x.price} ₺</span>
+            <div>
+              <button onClick={() => handleProduct(x)}>+ Ekle</button>
+            </div>
+          </div>
         </div>
-        </div>
-       </div>
       ))}
     </div>
+      </>
   )
 }
