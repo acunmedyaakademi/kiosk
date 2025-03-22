@@ -37,49 +37,64 @@ export default function Header() {
         </button>
 
       </div>
-      <div class="slider">
-        <div class="slide-track">
-          <div class="slide">
-            <img src="./public/assets/img/hamburger.jpg"   alt="" />
+      <div className="keyboard">
+        <span className="key">C</span>
+        <span className="key">A</span>
+        <span className="key">M</span>
+        <span className="key">P</span>
+        <span className="key">A</span>
+        <span className="key">I</span>
+        <span className="key">G</span>
+        <span className="key">N</span>
+      </div>
+      <div className="slider">
+        <div className="border-top-group">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="slide-track">
+          <div className="slide">
+            <img src="./public/assets/img/hamburger.jpg" alt="" />
           </div>
-          <div class="slide">
-            <img src="./public/assets/img/hamburger.jpg"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger-2.jpg" style={{height:"200px", width:'250px'}}  alt="" />
           </div>
-          <div class="slide">
-            <img src="./public/assets/img/hamburger.jpg"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger-3.jpg" style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="./public/assets/img/hamburger.jpg"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger-4.jpg" style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="./public/assets/img/hamburger.jpg"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/pizza-1.jpg"style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/pizza-2.jpg"style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/pizza-3.jpg"style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger.jpg" alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger-2.jpg" style={{height:"200px", width:'250px'}}  alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger-3.jpg" style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/hamburger-4.jpg" style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/pizza-1.jpg"style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/pizza-2.jpg"style={{height:"200px", width:'250px'}} alt="" />
           </div>
-          <div class="slide">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png"   alt="" />
+          <div className="slide">
+            <img src="./public/assets/img/pizza-3.jpg"style={{height:"200px", width:'250px'}} alt="" />
           </div>
         </div>
       </div>
