@@ -68,21 +68,15 @@ button.active i {
   color: #fff;
 }
 
-/* .keyboard {
+.keyboard {
   color: #212121;
   display: flex;
   background: #FFF;
-  justify-content: center;
   align-items: center;
-  width: 429px;
-  margin-inline: auto;
-  margin-top: 32px;
-  border-top: 2px solid #FE7701;
-  border-left: 2px solid #FE7701;
-  border-right: 2px solid #FE7701;
+  margin-block: 32px;
 
   .key {
-    font-size: 60px;
+    font-size: 30px;
     font-weight: 900;
     display: inline-block;
     transition: transform 0.2s;
@@ -208,7 +202,7 @@ button.active i {
 
 .key:nth-child(8) {
   animation: pressDown8 3.2s infinite;
-} */
+}
 
 @keyframes scroll {
   0% {

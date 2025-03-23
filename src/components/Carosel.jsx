@@ -12,7 +12,7 @@ export default function Carosel() {
     slidesToShow: 2,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000, 
   };
 
@@ -20,25 +20,25 @@ export default function Carosel() {
     <div className="slider-container">
       <Slider {...settings}>
           <div>
-            <img src="/assets/img/hamburger.jpg" alt="Hamburger" />
+            <img src="/assets/img/hamburger.jpg"/>
           </div>
           <div>
-            <img src="/assets/img/hamburger-4.jpg"alt="Hamburger 2" />
+            <img src="/assets/img/hamburger-1.jpeg"/>
           </div>
           <div>
-            <img src="/assets/img/hamburger-4.jpg"alt="Hamburger 3" />
+            <img src="/assets/img/recep-ivedik.jpg"/>
           </div>
           <div>
-            <img src="/assets/img/hamburger-4.jpg"alt="Hamburger 4" />
+            <img src="/assets/img/kahve-1.jpg"/>
           </div>
           <div>
-            <img src="/assets/img/pizza-1.jpg"alt="Pizza 1" />
+            <img src="/assets/img/pizza-1.jpg"/>
           </div>
           <div>
-            <img src="/assets/img/pizza-2.jpg"alt="Pizza 2" />
+            <img src="/assets/img/pizza-2.jpg"/>
           </div>
           <div>
-            <img src="/assets/img/pizza-3.jpeg"alt="Pizza 3" />
+            <img src="/assets/img/pizza-3.jpeg"/>
           </div>
       </Slider>
     </div>

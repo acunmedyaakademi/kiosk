@@ -36,7 +36,7 @@ export default function Header() {
           <span>Sauces</span>
         </button>
       </div>
-      {/* <div className="keyboard">
+      <div className="keyboard">
         <span className="key">C</span>
         <span className="key">A</span>
         <span className="key">M</span>
@@ -45,7 +45,7 @@ export default function Header() {
         <span className="key">I</span>
         <span className="key">G</span>
         <span className="key">N</span>
-      </div> */}
+      </div>
 
     <Carosel/>
     </header>
