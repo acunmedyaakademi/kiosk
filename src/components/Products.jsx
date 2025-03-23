@@ -46,21 +46,16 @@ export default function Products() {
   }
 
   function handleMinus(product) {
-    if (product.count === 1) {
-      setSelectedProduct(selectedProduct.filter(x => x.id !== product.id))
-    } else {
-      product.count--
+    if (product.count > 1) {
+      product.count--;
       setSelectedProduct([...selectedProduct]);
-    }
-    if (product.count === 0) {
-      dialogRef.current.close();
+    } else {
+      setSelectedProduct(selectedProduct.filter(x => x.id !== product.id));
+      if (product.count === 1) {
+        dialogRef.current.close();
+      }
     }
     console.log(product.count);
-
-
-
-
-
   }
 
   function openDialog() {
@@ -92,7 +87,6 @@ export default function Products() {
           {selectedProduct.map(x => (
             <div className="order-container" key={x.id}>
               <img src={x.img} alt="" className="auto" style={{ width: "400px", }} />
-              <AnimetedButton />
               <div>
                 <h6>{x.name}</h6>
                 <span>{x.price} ₺</span>
@@ -102,6 +96,7 @@ export default function Products() {
                   <button onClick={() => handleProduct(x)}><i className="fa-solid fa-plus"></i></button>
                 </div>
               </div>
+              <AnimetedButton />
             </div>
           ))}
         </div>
