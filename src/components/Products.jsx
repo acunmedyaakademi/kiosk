@@ -32,6 +32,8 @@ export default function Products() {
   }, [])
 
 
+
+
   function handleProduct(product) {
     if (selectedProduct.find(x => x.id === product.id)) {
       selectedProduct.find(x => x.id === product.id).count++
@@ -39,7 +41,25 @@ export default function Products() {
     } else {
       setSelectedProduct([...selectedProduct, { ...product, count: 1 }])
     }
-    console.log(selectedProduct);
+
+
+  }
+
+  function handleMinus(product) {
+    if (product.count === 1) {
+      setSelectedProduct(selectedProduct.filter(x => x.id !== product.id))
+    } else {
+      product.count--
+      setSelectedProduct([...selectedProduct]);
+    }
+    if (product.count === 0) {
+      dialogRef.current.close();
+    }
+    console.log(product.count);
+
+
+
+
 
   }
 
@@ -68,41 +88,19 @@ export default function Products() {
       </div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
-          <button className="close-btn"><i className="fa-solid fa-xmark" ></i></button>
+          <button className="close-btn" onClick={() => dialogRef.current.close()}><i className="fa-solid fa-xmark" ></i></button>
           {selectedProduct.map(x => (
             <div className="order-container" key={x.id}>
               <img src={x.img} alt="" className="auto" style={{ width: "400px", }} />
+              <AnimetedButton />
               <div>
                 <h6>{x.name}</h6>
                 <span>{x.price} ₺</span>
                 <div className="count-btns">
-                  <button><i className="fa-solid fa-minus"></i></button>
+                  <button onClick={() => handleMinus(x)}><i className="fa-solid fa-minus"></i></button>
                   <span>{x.count}</span>
-                  <button><i className="fa-solid fa-plus"></i></button>
+                  <button onClick={() => handleProduct(x)}><i className="fa-solid fa-plus"></i></button>
                 </div>
-              </div>
-              <div className="buttons">
-                <button className="blob-btn">
-                  DONE
-                  <span className="blob-btn__inner">
-                    <span className="blob-btn__blobs">
-                      <span className="blob-btn__blob"></span>
-                      <span className="blob-btn__blob"></span>
-                      <span className="blob-btn__blob"></span>
-                      <span className="blob-btn__blob"></span>
-                    </span>
-                  </span>
-                </button>
-                <br />
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                  <defs>
-                    <filter id="goo">
-                      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-                      <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-                    </filter>
-                  </defs>
-                </svg>
               </div>
             </div>
           ))}
@@ -110,4 +108,32 @@ export default function Products() {
       </dialog>
     </>
   )
+
+  function AnimetedButton() {
+    return (
+      <div className="buttons">
+        <button className="blob-btn">
+          DONE
+          <span className="blob-btn__inner">
+            <span className="blob-btn__blobs">
+              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"></span>
+            </span>
+          </span>
+        </button>
+        <br />
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+              <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    )
+  }
 }
