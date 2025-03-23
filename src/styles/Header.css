@@ -11,8 +11,10 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 100px;
   /* gap: 16px; */
 }
+
 
 .category {
   button {

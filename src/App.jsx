@@ -7,6 +7,7 @@ import supabase from './js/supabaseClient';
 import Products from './components/Products';
 
 
+
 console.log(supabase);
 
 
@@ -17,7 +18,6 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      
       <Products />
       <Order />
      
