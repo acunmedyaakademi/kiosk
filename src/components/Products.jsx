@@ -56,7 +56,8 @@ export default function Products() {
         dialogRef.current.close();
       }
     }
-    isPriceNull();
+
+    console.log(isCancel)
 
   }
 
@@ -65,9 +66,10 @@ export default function Products() {
   }
 
   function handleCloseDialog() {
-
+    isPriceNull();
     dialogRef.current.close();
   }
+
   const total = selectedProduct.reduce((acc, x) => acc + x.price * x.count, 0);
   console.log(total);
 
@@ -119,7 +121,8 @@ export default function Products() {
         </div>
       </dialog>
 
-      {isCancel && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} />}
+      {isCancel && total > 0 && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} />}
+
     </>
   )
 

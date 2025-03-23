@@ -58,19 +58,19 @@ export default function Header() {
             <span>Burgers</span>
           </button>
           <button className="carousel__face">
-            <i className="fa-solid fa-martini-glass"></i>
-            <span>Coctail</span>
+            <i className="fa-solid fa-drumstick-bite"></i>
+            <span>Chickens</span>
           </button>
           <button className="carousel__face">
-            <i className="fa-solid fa-ice-cream"></i>
-            <span>Ice Cream</span>
+            <i class="fa-solid fa-cake-candles"></i>
+            <span>Desserts</span>
           </button>
           <button className="carousel__face">
             <i className="fa-solid fa-mug-hot"></i>
-            <span>Coffee</span>
+            <span>Drinks</span>
           </button>
           <button className="carousel__face">
-            <i className="fa-brands fa-sketch"></i>
+            <i class="fa-solid fa-cheese"></i>
             <span>Sauces</span>
           </button>
         </div>
