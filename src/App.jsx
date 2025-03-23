@@ -8,7 +8,7 @@ import Products from './components/Products';
 
 
 
-console.log(supabase);
+
 
 
 
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <Products />
       <Order />
-     
+
     </div>
   )
 }

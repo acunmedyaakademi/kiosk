@@ -2,7 +2,7 @@
   height: 100px;
   margin-inline: -64px;
   margin-bottom: -32px;
-  background: #FFF;
+  background: #fff;
   position: sticky;
   bottom: 0px;
   display: flex;
@@ -10,24 +10,24 @@
   align-items: center;
   padding-inline: 64px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  display: none; /* geçici olarak kapatldı */
 
   /* width: 100%; */
 
   .remove-btn {
     button {
-      color: #FE7701;
+      color: #fe7701;
       font-weight: 500;
       font-size: 20px;
       letter-spacing: 1px;
       border: 0;
       background: inherit;
-
     }
     .border-bottom {
       height: 3px;
       width: 4rem;
       margin-inline: auto;
-      background-color: #FE7701;
+      background-color: #fe7701;
     }
   }
   .order {
@@ -46,65 +46,64 @@
       color: #f5ab66;
     }
     span:nth-child(3) {
-      color: #FE7701;
+      color: #fe7701;
     }
   }
 
- .confirm-btn {
+  .confirm-btn {
     button {
-      outline:none;
+      outline: none;
       height: 40px;
       text-align: center;
       width: 80px;
-      border-radius:40px;
+      border-radius: 40px;
       background: #fff;
-      border: 2px solid #FE7701;
-      color:#FE7701;
-      letter-spacing:1px;
+      border: 2px solid #fe7701;
+      color: #fe7701;
+      letter-spacing: 1px;
       text-shadow: 0;
       font-size: 12px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.25s ease;
       &:hover {
-        color:white;
-        background: #FE7701;
+        color: white;
+        background: #fe7701;
       }
       &:active {
-        letter-spacing: 2px ;
+        letter-spacing: 2px;
       }
       &:after {
-        content:"Onayla";
+        content: "Onayla";
       }
     }
     .onclic {
       width: 40px;
-      border-color:#bbbbbb;
-      border-width:3px;
-      font-size:0;
-      border-left-color:#FE7701;
+      border-color: #bbbbbb;
+      border-width: 3px;
+      font-size: 0;
+      border-left-color: #fe7701;
       animation: rotating 2s 0.25s linear infinite;
-    
+
       &:after {
-        content:"";
+        content: "";
       }
       &:hover {
-        color:#FE7701;
+        color: #fe7701;
         background: white;
       }
     }
     .validate {
-      font-size:13px;
+      font-size: 13px;
       color: white;
       background: green;
       border: none;
       &:after {
-        font-family:'FontAwesome';
-        content:"\f00c";
+        font-family: "FontAwesome";
+        content: "\f00c";
       }
     }
-  } 
-   
+  }
 }
 @keyframes rotating {
   from {
