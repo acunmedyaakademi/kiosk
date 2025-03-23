@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "../styles/Order.css"
 
-export default function Order() {
+export default function Order({ total, setIsCancel, isCancel }) {
   const [isOnClick, setIsOnClick] = useState(false);
   const [isValidate, setIsValidate] = useState(false);
 
+
   const handleClick = () => {
     setIsOnClick(true);
-
     setTimeout(() => {
       setIsOnClick(false);
       setIsValidate(true);
@@ -26,7 +26,7 @@ export default function Order() {
       <div className="order">
         <h4>Your Order</h4>
         <span>3</span>
-        <span>$50.41</span>
+        <span>{total}</span>
       </div>
       <div className="confirm-btn">
         <button className={`${isOnClick ? 'onclic' : ''} ${isValidate ? 'validate' : ''}`} onClick={handleClick}></button>

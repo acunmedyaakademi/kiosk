@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import supabase from "../js/supabaseClient"
 import "../styles/Products.css"
+import Order from "./Order";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
+  const [isCancel, setIsCancel] = useState(false);
   const dialogRef = useRef(null);
 
   useEffect(() => {
@@ -42,7 +44,6 @@ export default function Products() {
       setSelectedProduct([...selectedProduct, { ...product, count: 1 }])
     }
 
-
   }
 
   function handleMinus(product) {
@@ -55,11 +56,27 @@ export default function Products() {
         dialogRef.current.close();
       }
     }
-    console.log(product.count);
+    isPriceNull();
+
   }
 
   function openDialog() {
     dialogRef.current.show();
+  }
+
+  function handleCloseDialog() {
+
+    dialogRef.current.close();
+  }
+  const total = selectedProduct.reduce((acc, x) => acc + x.price * x.count, 0);
+  console.log(total);
+
+  function isPriceNull() {
+    if (total === 0) {
+      setIsCancel(false);
+    } else {
+      setIsCancel(true);
+    }
   }
 
 
@@ -75,7 +92,7 @@ export default function Products() {
               <h6>{x.name}</h6>
               <span>{x.price} ₺</span>
               <div>
-                <button onClick={() => { handleProduct(x); openDialog(); }}>+ Ekle</button>
+                <button onClick={() => { handleProduct(x); openDialog(); setIsCancel(false) }}>+ Ekle</button>
               </div>
             </div>
           </div>
@@ -83,7 +100,7 @@ export default function Products() {
       </div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
-          <button className="close-btn" onClick={() => dialogRef.current.close()}><i className="fa-solid fa-xmark" ></i></button>
+          <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); }}><i className="fa-solid fa-xmark" ></i></button>
           {selectedProduct.map(x => (
             <div className="order-container" key={x.id}>
               <img src={x.img} alt="" className="auto" style={{ width: "400px", }} />
@@ -101,13 +118,15 @@ export default function Products() {
           ))}
         </div>
       </dialog>
+
+      {isCancel && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} />}
     </>
   )
 
   function AnimetedButton() {
     return (
       <div className="buttons">
-        <button className="blob-btn">
+        <button className="blob-btn" onClick={() => { handleCloseDialog(); setIsCancel(true) }}>
           DONE
           <span className="blob-btn__inner">
             <span className="blob-btn__blobs">
