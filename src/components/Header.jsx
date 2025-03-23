@@ -1,8 +1,18 @@
-import "../styles/Header.css"
+import Slider from "react-slick";
 
+import "../styles/Header.css";
 
 export default function Header() {
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+  };
 
   return (
     <header>
@@ -15,7 +25,7 @@ export default function Header() {
           <i className="fa-solid fa-pizza-slice"></i>
           <span>Pizza</span>
         </button>
-        <button className="carousel__face ">
+        <button className="carousel__face">
           <i className="fa-solid fa-burger"></i>
           <span>Burgers</span>
         </button>
@@ -27,7 +37,7 @@ export default function Header() {
           <i className="fa-solid fa-ice-cream"></i>
           <span>Ice Cream</span>
         </button>
-        <button className="carousel__face ">
+        <button className="carousel__face">
           <i className="fa-solid fa-mug-hot"></i>
           <span>Coffee</span>
         </button>
@@ -35,7 +45,6 @@ export default function Header() {
           <i className="fa-brands fa-sketch"></i>
           <span>Sauces</span>
         </button>
-
       </div>
       <div className="keyboard">
         <span className="key">C</span>
@@ -47,57 +56,31 @@ export default function Header() {
         <span className="key">G</span>
         <span className="key">N</span>
       </div>
-      <div className="slider">
-        <div className="border-top-group">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className="slide-track">
+      <Slider {...settings}>
+        <div className="slider">
           <div className="slide">
-            <img src="./public/assets/img/hamburger.jpg" alt="" />
+            <img src="/assets/img/hamburger.jpg" alt="Hamburger" />
           </div>
           <div className="slide">
-            <img src="./public/assets/img/hamburger-2.jpg" style={{height:"200px", width:'250px'}}  alt="" />
+            <img src="/assets/img/hamburger-2.jpg" style={{ height: "200px", width: "250px" }} alt="Hamburger 2" />
           </div>
           <div className="slide">
-            <img src="./public/assets/img/hamburger-3.jpg" style={{height:"200px", width:'250px'}} alt="" />
+            <img src="/assets/img/hamburger-3.jpg" style={{ height: "200px", width: "250px" }} alt="Hamburger 3" />
           </div>
           <div className="slide">
-            <img src="./public/assets/img/hamburger-4.jpg" style={{height:"200px", width:'250px'}} alt="" />
+            <img src="/assets/img/hamburger-4.jpg" style={{ height: "200px", width: "250px" }} alt="Hamburger 4" />
           </div>
           <div className="slide">
-            <img src="./public/assets/img/pizza-1.jpg"style={{height:"200px", width:'250px'}} alt="" />
+            <img src="/assets/img/pizza-1.jpg" style={{ height: "200px", width: "250px" }} alt="Pizza 1" />
           </div>
           <div className="slide">
-            <img src="./public/assets/img/pizza-2.jpg"style={{height:"200px", width:'250px'}} alt="" />
+            <img src="/assets/img/pizza-2.jpg" style={{ height: "200px", width: "250px" }} alt="Pizza 2" />
           </div>
           <div className="slide">
-            <img src="./public/assets/img/pizza-3.jpg"style={{height:"200px", width:'250px'}} alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/hamburger.jpg" alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/hamburger-2.jpg" style={{height:"200px", width:'250px'}}  alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/hamburger-3.jpg" style={{height:"200px", width:'250px'}} alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/hamburger-4.jpg" style={{height:"200px", width:'250px'}} alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/pizza-1.jpg"style={{height:"200px", width:'250px'}} alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/pizza-2.jpg"style={{height:"200px", width:'250px'}} alt="" />
-          </div>
-          <div className="slide">
-            <img src="./public/assets/img/pizza-3.jpg"style={{height:"200px", width:'250px'}} alt="" />
+            <img src="/assets/img/pizza-3.jpg" style={{ height: "200px", width: "250px" }} alt="Pizza 3" />
           </div>
         </div>
-      </div>
+      </Slider>
     </header>
-  )
+  );
 }
