@@ -54,7 +54,7 @@ export default function Products() {
       <h2>All Items</h2>
       <div className="products-area">
         {products.map(x => (
-          <div className="product">
+          <div className="product" key={x.id}>
             <img src={x.img} />
             <div>
               <h6>{x.name}</h6>
@@ -68,16 +68,43 @@ export default function Products() {
       </div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
-          <h2>Selected Items</h2>
+          <button className="close-btn"><i className="fa-solid fa-xmark" ></i></button>
           {selectedProduct.map(x => (
-            <>
-              <img src={x.img} alt="" className="auto" />
-              <div className="order-sidebar">
-                <img src={x.img} alt="" />
-                <p>{x.name} - {x.count} adet</p>
-                <span>{x.price * x.count} ₺</span>
+            <div className="order-container" key={x.id}>
+              <img src={x.img} alt="" className="auto" style={{ width: "400px", }} />
+              <div>
+                <h6>{x.name}</h6>
+                <span>{x.price} ₺</span>
+                <div className="count-btns">
+                  <button><i className="fa-solid fa-minus"></i></button>
+                  <span>{x.count}</span>
+                  <button><i className="fa-solid fa-plus"></i></button>
+                </div>
               </div>
-            </>
+              <div className="buttons">
+                <button className="blob-btn">
+                  DONE
+                  <span className="blob-btn__inner">
+                    <span className="blob-btn__blobs">
+                      <span className="blob-btn__blob"></span>
+                      <span className="blob-btn__blob"></span>
+                      <span className="blob-btn__blob"></span>
+                      <span className="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+                <br />
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                  <defs>
+                    <filter id="goo">
+                      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                      <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
+            </div>
           ))}
         </div>
       </dialog>
