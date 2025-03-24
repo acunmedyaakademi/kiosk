@@ -16,9 +16,15 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
 
       setTimeout(() => {
         setIsValidate(false);
-        setSelectedProduct([])
+        setSelectedProduct([]);
+        
       }, 1250);
     }, 2250);
+  }
+
+  function handleDelete(x) {
+    const filteredProduct = selectedProduct.filter(y => y.id !== x);
+    setSelectedProduct(filteredProduct)
   }
 
   function kioskSystem() {
@@ -68,7 +74,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
                     <span className="item-total">${(x.count * x.price).toFixed(2)}</span>
                   </div>
                 </div>
-                {/* <button className="dialog-remove-btn"><img src="/img/remove-btn.svg" alt="" /></button> */}
+                <button className="dialog-remove-btn" onClick={() => handleDelete(x.id)}><i className="fa-solid fa-xmark"></i></button>
               </li>
             )}
           </ul>

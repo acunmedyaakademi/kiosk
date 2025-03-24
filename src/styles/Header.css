@@ -275,3 +275,8 @@ button.active i {
     background: #fff;
   }
 } */
+
+
+.flex button:nth-child(2) {
+  order: -1;
+}

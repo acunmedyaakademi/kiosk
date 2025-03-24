@@ -266,3 +266,9 @@
       transform: rotate(45deg) translate(20px, 20px);
   }
 }
+
+.dialog-remove-btn {
+  border: none;
+  font-size: 30px;
+  color: #fe7701;
+}
