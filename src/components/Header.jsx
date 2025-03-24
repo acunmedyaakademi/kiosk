@@ -5,6 +5,9 @@ import "../styles/Header.css";
 
 export default function Header() {
   const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("Main")
+
+
   useEffect(() => {
     async function getData() {
       let { data, error } = await supabase.from('categories').select('*');
@@ -25,54 +28,27 @@ export default function Header() {
 
     getData();
 
+    console.log(products);
     return () => supabase.removeChannel(channels);
-
   }, [])
+
+  function handleCategory(name) {
+    setSelectedCategory(name)
+
+  }
 
   return (
 
 
     <>
       <header>
-        {/* {products.map(x => (
-          <div className="category flex">
-            <button className="carousel__face">
-              <i className={x.icon}></i>
+        <div className="category flex">
+          {products.map(x =>
+            <button className={`carousel__face ${selectedCategory === x.name ? 'active' : ''}`}  key={x.id} onClick={() => handleCategory(x.name)}>
+              <i className={x.img}></i>
               <span>{x.name}</span>
             </button>
-          </div>
-        ))} */}
-        {/* catagoriler gelio ama css düzeltilmesi lazım bide iconları teker teker nasıl vericez ona bak */}
-
-        <div className="category flex">
-          <button className="carousel__face active">
-            <i className="fa-solid fa-house"></i>
-            <span>Main</span>
-          </button>
-          <button className="carousel__face">
-            <i className="fa-solid fa-pizza-slice"></i>
-            <span>Pizza</span>
-          </button>
-          <button className="carousel__face">
-            <i className="fa-solid fa-burger"></i>
-            <span>Burgers</span>
-          </button>
-          <button className="carousel__face">
-            <i className="fa-solid fa-drumstick-bite"></i>
-            <span>Chickens</span>
-          </button>
-          <button className="carousel__face">
-            <i class="fa-solid fa-cake-candles"></i>
-            <span>Desserts</span>
-          </button>
-          <button className="carousel__face">
-            <i className="fa-solid fa-mug-hot"></i>
-            <span>Drinks</span>
-          </button>
-          <button className="carousel__face">
-            <i class="fa-solid fa-cheese"></i>
-            <span>Sauces</span>
-          </button>
+          )}
         </div>
         <div className="keyboard">
           <span className="key">C</span>
@@ -84,7 +60,6 @@ export default function Header() {
           <span className="key">G</span>
           <span className="key">N</span>
         </div>
-
         <Carosel />
       </header>
     </>

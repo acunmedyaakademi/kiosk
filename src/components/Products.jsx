@@ -6,6 +6,7 @@ import Order from "./Order";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
+  const [cart, setCart] = useState(null)
   const [isCancel, setIsCancel] = useState(false);
   const dialogRef = useRef(null);
 
@@ -33,17 +34,26 @@ export default function Products() {
 
   }, [])
 
-
+  function addToCart() {
+    if (selectedProduct.find(x => x.id === cart.id)) {
+      setSelectedProduct([...selectedProduct]);
+    } else {
+      setSelectedProduct([...selectedProduct, { ...cart}])
+    }
+    console.log(selectedProduct);
+    handleCloseDialog(); 
+    setIsCancel(true)
+  }
 
 
   function handleProduct(product) {
-    if (selectedProduct.find(x => x.id === product.id)) {
-      selectedProduct.find(x => x.id === product.id).count++
-      setSelectedProduct([...selectedProduct]);
+    if (cart && cart.id === product.id) {
+      setCart(prev => ({ ...prev, count: prev.count + 1 }));
     } else {
-      setSelectedProduct([...selectedProduct, { ...product, count: 1 }])
+      setCart({ ...product, count: 1 });
     }
-
+    openDialog()
+    setIsCancel(false);
   }
 
   function handleMinus(product) {
@@ -56,9 +66,6 @@ export default function Products() {
         dialogRef.current.close();
       }
     }
-
-    console.log(isCancel)
-
   }
 
   function openDialog() {
@@ -71,7 +78,6 @@ export default function Products() {
   }
 
   const total = selectedProduct.reduce((acc, x) => acc + x.price * x.count, 0);
-  console.log(total);
 
   function isPriceNull() {
     if (total === 0) {
@@ -81,47 +87,51 @@ export default function Products() {
     }
   }
 
+  
+
 
 
   return (
     <>
       <h2>All Items</h2>
       <div className="products-area">
-        {products.map(x => (
+         {products.map(x => (
           <div className="product" key={x.id}>
             <img src={x.img} />
             <div>
               <h6>{x.name}</h6>
               <span>{x.price} ₺</span>
               <div>
-                <button onClick={() => { handleProduct(x); openDialog(); setIsCancel(false) }}>+ Ekle</button>
+                <button onClick={() =>  handleProduct(x)}>+ Add</button>
               </div>
             </div>
           </div>
-        ))}
+        ))}             
       </div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
           <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); }}><i className="fa-solid fa-xmark" ></i></button>
-          {selectedProduct.map(x => (
-            <div className="order-container" key={x.id}>
-              <img src={x.img} alt="" className="auto" style={{ width: "400px", }} />
+          {cart && (
+            <div className="order-container">
+              <img src={cart.img} alt="" className="auto" style={{ width: "400px", height:'400px' }} />
               <div>
-                <h6>{x.name}</h6>
-                <span>{x.price} ₺</span>
+                <h6>{cart.name}</h6>
+                <span>{cart.price} ₺</span>
                 <div className="count-btns">
-                  <button onClick={() => handleMinus(x)}><i className="fa-solid fa-minus"></i></button>
-                  <span>{x.count}</span>
-                  <button onClick={() => handleProduct(x)}><i className="fa-solid fa-plus"></i></button>
+                  <button onClick={() => handleMinus(cart)}><i className="fa-solid fa-minus"></i></button>
+                  <span>{cart.count}</span>
+                  <button onClick={() => setCart(prev => ({ ...prev, count: prev.count + 1 }))}>
+                    <i className="fa-solid fa-plus"></i>
+                  </button>
                 </div>
               </div>
               <AnimetedButton />
             </div>
-          ))}
+          )}
         </div>
       </dialog>
 
-      {isCancel && total > 0 && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} />}
+      {isCancel && total > 0 && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct}/>}
 
     </>
   )
@@ -129,7 +139,7 @@ export default function Products() {
   function AnimetedButton() {
     return (
       <div className="buttons">
-        <button className="blob-btn" onClick={() => { handleCloseDialog(); setIsCancel(true) }}>
+        <button className="blob-btn" onClick={addToCart}>
           DONE
           <span className="blob-btn__inner">
             <span className="blob-btn__blobs">

@@ -1,9 +1,9 @@
 ** Todo Listesi **
 1.  dialog açıldıgı zaman yeni ürün ekleme yapılmasın
-2. dialog içinde sadece bir ürün görünsün
+2. dialog içinde sadece bir ürün görünsün(yapıldı)
 3. ( tartış) en aşağıya bir ok koy order dialog çarpıyla kapandıgında siparişe kaldıgım yerden devam ediyim
 4. 0 oldugunda price(total) order gözükmesin
-5. onayla dedikten sonraki dialog yapılcak
+5. onayla dedikten sonraki dialog yapılcak (yapıldı)
 6. catagori filtirelemesi yapılcak
 7. search olcak mı diye onayla (opsiyonel)
 8. dialog shomodal olunca still yemiyor backdrop nasıl çözülcek çözüm bak

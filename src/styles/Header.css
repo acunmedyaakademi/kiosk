@@ -71,12 +71,13 @@ button.active i {
 .keyboard {
   color: #212121;
   display: flex;
-  background: #FFF;
+  background: inherit;
+  justify-content: center;
   align-items: center;
   margin-block: 32px;
 
   .key {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 900;
     display: inline-block;
     transition: transform 0.2s;
