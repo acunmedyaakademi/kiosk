@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import Carosel from "./Carosel";
 import supabase from "../js/supabaseClient"
 import "../styles/Header.css";
+import { motion } from "motion/react"
+
 
 export default function Header({setFilterCategory}) {
   const [products, setProducts] = useState([]);
@@ -41,7 +43,25 @@ export default function Header({setFilterCategory}) {
 
 
     <>
-      <header>
+      <motion.header
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          y: -50,
+          skewX: -30,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          skewX: 0,
+        }}
+        transition={{
+          duration: 1.2,
+          ease: "easeOut",
+          type: "spring",
+          bounce: 0.4, 
+        }}  >
         <div className="category flex">
           {products.map(x =>
             <button className={`carousel__face ${selectedCategory === x.name ? 'active' : ''}`}  key={x.id} onClick={() => handleCategory(x)}>
@@ -61,7 +81,7 @@ export default function Header({setFilterCategory}) {
           <span className="key">N</span>
         </div>
         <Carosel />
-      </header>
+      </motion.header>
     </>
   );
 }

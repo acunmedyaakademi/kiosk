@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react"
 import supabase from "../js/supabaseClient"
 import "../styles/Products.css"
 import Order from "./Order";
+import { motion } from "motion/react"
 
-export default function Products({filterCategory}) {
+export default function Products({ filterCategory }) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState(null)
@@ -11,8 +12,6 @@ export default function Products({filterCategory}) {
   const dialogRef = useRef(null);
 
 
-  //   const filteredCategory = products.filter(x=> x.id != selectedCategory);
-  // console.log(filteredCategory);
 
   useEffect(() => {
     async function getData() {
@@ -98,22 +97,33 @@ export default function Products({filterCategory}) {
   return (
     <>
       <h2>All Items</h2>
-      <div className="products-area">
+      <motion.div className="products-area"
+        initial={{ opacity: 0, x: -100 }} 
+        animate={{ opacity: 1, x: 0 }}    
+        transition={{ duration: 1 }}       
+      >
         {products
-        .filter(x => filtered === 7 || x.category_id === Number(filtered))
-        .map(x => (
-          <div className="product" key={x.id}>
-            <img src={x.img} />
-            <div>
-              <h6>{x.name}</h6>
-              <span>{x.price} ₺</span>
+          .filter(x => filtered === 7 || x.category_id === Number(filtered))
+          .map((x, index) => (
+            <motion.div
+              className="product"
+              key={x.id}
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, amount: 0.3 }} 
+              transition={{ duration: 0.8, delay: index * 0.1 }} 
+            >
+              <img src={x.img} />
               <div>
-                <button onClick={() => handleProduct(x)}>+ Add</button>
+                <h6>{x.name}</h6>
+                <span>{x.price} ₺</span>
+                <div>
+                  <button onClick={() => handleProduct(x)}>+ Add</button>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+      </motion.div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
           <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); }}><i className="fa-solid fa-xmark" ></i></button>

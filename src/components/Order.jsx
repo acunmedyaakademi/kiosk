@@ -17,7 +17,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
       setTimeout(() => {
         setIsValidate(false);
         setSelectedProduct([]);
-        
+
       }, 1250);
     }, 2250);
   }
@@ -47,7 +47,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           <span>{selectedProduct.length}</span>
           <span>{total} ₺</span>
         </div>
-        <button onClick={() => {kioskSystem(); dialogRef.current.showModal()}}>Go to cart</button>
+        <button onClick={() => { kioskSystem(); dialogRef.current.showModal() }}>Go to cart</button>
 
       </div>
 
