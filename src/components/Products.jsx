@@ -38,10 +38,10 @@ export default function Products() {
     if (selectedProduct.find(x => x.id === cart.id)) {
       setSelectedProduct([...selectedProduct]);
     } else {
-      setSelectedProduct([...selectedProduct, { ...cart}])
+      setSelectedProduct([...selectedProduct, { ...cart }])
     }
     console.log(selectedProduct);
-    handleCloseDialog(); 
+    handleCloseDialog();
     setIsCancel(true)
   }
 
@@ -87,7 +87,7 @@ export default function Products() {
     }
   }
 
-  
+
 
 
 
@@ -95,30 +95,30 @@ export default function Products() {
     <>
       <h2>All Items</h2>
       <div className="products-area">
-         {products.map(x => (
+        {products.map(x => (
           <div className="product" key={x.id}>
             <img src={x.img} />
             <div>
               <h6>{x.name}</h6>
               <span>{x.price} ₺</span>
               <div>
-                <button onClick={() =>  handleProduct(x)}>+ Add</button>
+                <button onClick={() => handleProduct(x)}>+ Add</button>
               </div>
             </div>
           </div>
-        ))}             
+        ))}
       </div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
           <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); }}><i className="fa-solid fa-xmark" ></i></button>
           {cart && (
             <div className="order-container">
-              <img src={cart.img} alt="" className="auto" style={{ width: "400px", height:'400px' }} />
+              <img src={cart.img} alt="" className="auto" style={{ width: "400px", height: '400px' }} />
               <div>
                 <h6>{cart.name}</h6>
                 <span>{cart.price} ₺</span>
                 <div className="count-btns">
-                  <button onClick={() => handleMinus(cart)}><i className="fa-solid fa-minus"></i></button>
+                  <button onClick={() => handleMinus(cart)} disabled={cart.count === 1}><i className="fa-solid fa-minus"></i></button>
                   <span>{cart.count}</span>
                   <button onClick={() => setCart(prev => ({ ...prev, count: prev.count + 1 }))}>
                     <i className="fa-solid fa-plus"></i>
@@ -131,7 +131,7 @@ export default function Products() {
         </div>
       </dialog>
 
-      {isCancel && total > 0 && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct}/>}
+      {isCancel && total > 0 && <Order total={total} isCancel={isCancel} setIsCancel={setIsCancel} selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct} />}
 
     </>
   )
