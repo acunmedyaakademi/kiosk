@@ -3,12 +3,16 @@ import supabase from "../js/supabaseClient"
 import "../styles/Products.css"
 import Order from "./Order";
 
-export default function Products() {
+export default function Products({filterCategory}) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState(null)
   const [isCancel, setIsCancel] = useState(false);
   const dialogRef = useRef(null);
+
+
+  //   const filteredCategory = products.filter(x=> x.id != selectedCategory);
+  // console.log(filteredCategory);
 
   useEffect(() => {
     async function getData() {
@@ -87,15 +91,17 @@ export default function Products() {
     }
   }
 
-
-
-
+  const filtered = filterCategory.id === undefined ? 7 : filterCategory.id;
+  // const filtered = filterCategory.id === "" ? null : filterCategory.id || 7;
+  console.log("Filtered ID:", filtered);
 
   return (
     <>
       <h2>All Items</h2>
       <div className="products-area">
-        {products.map(x => (
+        {products
+        .filter(x => filtered === 7 || x.category_id === Number(filtered))
+        .map(x => (
           <div className="product" key={x.id}>
             <img src={x.img} />
             <div>

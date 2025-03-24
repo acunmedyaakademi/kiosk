@@ -12,8 +12,8 @@ export default function Carosel() {
     slidesToShow: 2,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: false,
-    autoplaySpeed: 4000, 
+    autoplay: true,
+    autoplaySpeed: 3000, 
   };
 
   return (

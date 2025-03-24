@@ -3,10 +3,10 @@ import Carosel from "./Carosel";
 import supabase from "../js/supabaseClient"
 import "../styles/Header.css";
 
-export default function Header() {
+export default function Header({setFilterCategory}) {
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("Main")
-
+  const [selectedCategory, setSelectedCategory] = useState("Main");
+ 
 
   useEffect(() => {
     async function getData() {
@@ -32,9 +32,9 @@ export default function Header() {
     return () => supabase.removeChannel(channels);
   }, [])
 
-  function handleCategory(name) {
-    setSelectedCategory(name)
-
+  function handleCategory(x) {
+    setSelectedCategory(x.name)
+    setFilterCategory(x);
   }
 
   return (
@@ -44,7 +44,7 @@ export default function Header() {
       <header>
         <div className="category flex">
           {products.map(x =>
-            <button className={`carousel__face ${selectedCategory === x.name ? 'active' : ''}`}  key={x.id} onClick={() => handleCategory(x.name)}>
+            <button className={`carousel__face ${selectedCategory === x.name ? 'active' : ''}`}  key={x.id} onClick={() => handleCategory(x)}>
               <i className={x.img}></i>
               <span>{x.name}</span>
             </button>

@@ -11,12 +11,17 @@ import Products from './components/Products';
 
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [filterCategory,setFilterCategory] = useState({});
 
+  // const filteredCategory = products.filter(x=> x.id != selectedCategory);
+  // console.log(filteredCategory);
+
+
+  console.log(filterCategory)
   return (
     <div className='container'>
-      <Header />
-      <Products />
+      <Header setFilterCategory = {setFilterCategory}  />
+      <Products filterCategory = {filterCategory} />
 
 
     </div>

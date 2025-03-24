@@ -46,9 +46,6 @@ header {
       font-size: 18px;
     }
   }
-  button:not(:first-child) {
-    margin-left: -50px;
-  }
 
   .active {
     transform: translateY(-20px);
