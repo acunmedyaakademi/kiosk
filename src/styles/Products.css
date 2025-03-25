@@ -36,7 +36,6 @@
         background: #914401;
       }
     }
-    
   }
 }
 
@@ -274,5 +273,3 @@ dialog::backdrop {
     transform: translateZ(0) scale(1.4);
   }
 }
-
-
