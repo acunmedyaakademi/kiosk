@@ -22,6 +22,9 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
     }, 2250);
   }
 
+
+  
+
   function handleDelete(x) {
     const filteredProduct = selectedProduct.filter(y => y.id !== x);
     setSelectedProduct(filteredProduct)
@@ -83,7 +86,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
             <span>{total} ₺</span>
           </div>
           <div className="delivery-note">
-            <img src="./public/assets/img/carbon-neutral-icon.svg" alt="" />
+            <img src="/assets/img/carbon-neutral-icon.svg" alt="" />
             <p>This is a <strong>carbon-neutral</strong> delivery</p>
           </div>
           <div className="confirm-btn">

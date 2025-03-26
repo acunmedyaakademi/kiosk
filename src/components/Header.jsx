@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import Carosel from "./Carosel";
-import supabase from "../js/supabaseClient"
 import "../styles/Header.css";
 import { motion } from "motion/react"
 
