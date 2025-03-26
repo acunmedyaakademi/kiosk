@@ -1,5 +1,4 @@
 ** Todo Listesi **
-2.  katagori filtreledikten sonra orderdaki img bozuluo
 3. mcdonals add to card yapılak
 5. siparişiniz hazirlaniyor kısmı yapılcak
 8. dialog shomodal olunca still yemiyor backdrop nasıl çözülcek çözüm bak
