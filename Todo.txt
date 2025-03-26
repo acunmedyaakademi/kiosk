@@ -1,10 +1,8 @@
 ** Todo Listesi **
-1.  dialog açıldıgı zaman yeni ürün ekleme yapılmasın
-2. dialog içinde sadece bir ürün görünsün(yapıldı)
-3. ( tartış) en aşağıya bir ok koy order dialog çarpıyla kapandıgında siparişe kaldıgım yerden devam ediyim
-5. onayla dedikten sonraki dialog yapılcak (yapıldı)
-7. search olcak mı diye onayla (opsiyonel)
+1 türkçeye çevir
+2.  katagori filtreledikten sonra orderdaki img bozuluo
+3. mcdonals add to card yapılak
+5. siparişiniz hazirlaniyor kısmı yapılcak
 8. dialog shomodal olunca still yemiyor backdrop nasıl çözülcek çözüm bak
 10. ekle butonuna basınca açılan dialog en alta gidio en yukardayken eklesen bile
 11. supabasede düzenleme yap
-12. Orhan hocaya göster yanlış bir şey varsa söylesin 

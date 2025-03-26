@@ -98,9 +98,9 @@ export default function Products({ filterCategory }) {
     <>
       <h2>Ürünler</h2>
       <motion.div className="products-area"
-        initial={{ opacity: 0, x: -100 }} 
-        animate={{ opacity: 1, x: 0 }}    
-        transition={{ duration: 1 }}       
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
       >
         {products
           .filter(x => filtered === 7 || x.category_id === Number(filtered))
@@ -108,10 +108,10 @@ export default function Products({ filterCategory }) {
             <motion.div
               className="product"
               key={x.id}
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true, amount: 0.3 }} 
-              transition={{ duration: 0.8, delay: index * 0.1 }} 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, }}
             >
               <img src={x.img} />
               <div>

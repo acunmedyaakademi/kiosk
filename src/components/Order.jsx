@@ -55,7 +55,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
 
       <dialog ref={dialogRef} className="payment-dialog">
         <div className="order-number">
-          <h6>{orderNumber}</h6>
+          {/* <h6>{orderNumber}</h6> */}
           <div class="arrow">
             <span></span>
             <span></span>
@@ -89,7 +89,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           <div className="confirm-btn">
             <button className={`${isOnClick ? 'onclic' : ''} ${isValidate ? 'validate' : ''}`} onClick={handleClick}></button>
           </div>
-          <button className="cancel-btn" onClick={() => { setSelectedProduct([]) }}>Geri</button>
+          <button className="cancel-btn" onClick={() => { dialogRef.current.close() }}>Geri</button>
         </div>
       </dialog>
     </>
