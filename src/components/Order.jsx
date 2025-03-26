@@ -9,19 +9,28 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
   const dialogRef = useRef(null)
 
 
-  const handleClick = () => {
+  const handleClick = async () => {
     setIsOnClick(true);
-    setTimeout(() => {
-      setIsOnClick(false);
-      setIsValidate(true);
 
+      const { data } = await supabase.from('orders').insert([{paid_price: total,status_id: 1,created_at: new Date().toISOString()}]).select();  
+
+      const newOrderId = data[0].id;
+      const orderItems = selectedProduct.map(product => ({order_id: newOrderId,product_id: product.id,created_at: new Date().toISOString()}));
+  
+      const { error: detailError } = await supabase.from('order_details').insert(orderItems);
+      if (detailError) throw detailError;
+  
       setTimeout(() => {
-        setIsValidate(false);
-        setSelectedProduct([]);
-
-      }, 1250);
-    }, 2250);
-  }
+        setIsOnClick(false);
+        setIsValidate(true);
+        setTimeout(() => {
+          setIsValidate(false);
+          setSelectedProduct([]);
+          dialogRef.current.close();
+        }, 1250);
+      }, 2250);
+  
+  };
 
 
 
