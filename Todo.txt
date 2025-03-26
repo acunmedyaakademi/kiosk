@@ -1,5 +1,4 @@
 ** Todo Listesi **
-1 türkçeye çevir
 2.  katagori filtreledikten sonra orderdaki img bozuluo
 3. mcdonals add to card yapılak
 5. siparişiniz hazirlaniyor kısmı yapılcak

@@ -29,7 +29,6 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           dialogRef.current.close();
         }, 1250);
       }, 2250);
-  
   };
 
 
@@ -69,7 +68,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
       <dialog ref={dialogRef} className="payment-dialog">
         <div className="order-number">
           {/* <h6>{orderNumber}</h6> */}
-          <div class="arrow">
+          <div className="arrow">
             <span></span>
             <span></span>
             <span></span>
