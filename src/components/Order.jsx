@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import "../styles/Order.css"
+import supabase from "../js/supabaseClient.js";
 
 export default function Order({ total, setSelectedProduct, setIsCancel, isCancel, selectedProduct }) {
   const [isOnClick, setIsOnClick] = useState(false);
@@ -23,7 +24,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
   }
 
 
-  
+
 
   function handleDelete(x) {
     const filteredProduct = selectedProduct.filter(y => y.id !== x);

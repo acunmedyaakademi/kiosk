@@ -3,13 +3,12 @@ import './styles/App.css'
 import "./styles/reset.css"
 import Header from './components/Header';
 import Products from './components/Products';
-import supabase from "../js/supabaseClient"
 
- 
+
 
 
 function App() {
-  const [filterCategory,setFilterCategory] = useState({});
+  const [filterCategory, setFilterCategory] = useState({});
 
   // const filteredCategory = products.filter(x=> x.id != selectedCategory);
   // console.log(filteredCategory);
@@ -18,8 +17,8 @@ function App() {
   console.log(filterCategory)
   return (
     <div className='container'>
-      <Header setFilterCategory = {setFilterCategory}  />
-      <Products filterCategory = {filterCategory} />
+      <Header setFilterCategory={setFilterCategory} />
+      <Products filterCategory={filterCategory} />
 
 
     </div>

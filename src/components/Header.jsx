@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import Carosel from "./Carosel";
 import "../styles/Header.css";
 import { motion } from "motion/react"
+import supabase from "../js/supabaseClient.js";
 
 
-export default function Header({setFilterCategory}) {
+export default function Header({ setFilterCategory }) {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Main");
- 
+
 
   useEffect(() => {
     async function getData() {
@@ -59,11 +60,11 @@ export default function Header({setFilterCategory}) {
           duration: 1.2,
           ease: "easeOut",
           type: "spring",
-          bounce: 0.4, 
+          bounce: 0.4,
         }}  >
         <div className="category flex">
           {products.map(x =>
-            <button className={`carousel__face ${selectedCategory === x.name ? 'active' : ''}`}  key={x.id} onClick={() => handleCategory(x)}>
+            <button className={`carousel__face ${selectedCategory === x.name ? 'active' : ''}`} key={x.id} onClick={() => handleCategory(x)}>
               <i className={x.img}></i>
               <span>{x.name}</span>
             </button>
