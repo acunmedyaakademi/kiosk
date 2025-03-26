@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import "../styles/Order.css"
 import supabase from "../js/supabaseClient.js";
+import Receipt from "./Receipt.jsx";
 
 export default function Order({ total, setSelectedProduct, setIsCancel, isCancel, selectedProduct }) {
   const [isOnClick, setIsOnClick] = useState(false);
@@ -66,14 +67,6 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
 
 
       <dialog ref={dialogRef} className="payment-dialog">
-        <div className="order-number">
-          {/* <h6>{orderNumber}</h6> */}
-          <div className="arrow">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
         <div className="dialog-order">
           <ul className="card-items">
             {selectedProduct.map((x, i) =>
@@ -104,7 +97,10 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           <button className="cancel-btn" onClick={() => { dialogRef.current.close() }}>Geri</button>
         </div>
       </dialog>
+      <Receipt />
     </>
+
+    
 
   )
 }

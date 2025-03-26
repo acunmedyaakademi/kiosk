@@ -1,0 +1,57 @@
+.receipt-area {
+  background-color: rgb(92,49,182);
+  padding: 50px;
+  text-align: center;
+  border-radius: 20px;
+  img {
+    margin-inline: auto;
+    width: 400px;
+    height: 400px;
+  }
+  h2 {
+    color: white;
+  }
+  h5 {
+    font-size: 20px;
+    color: wheat;
+    padding-bottom: 5px;
+  }
+  
+}
+
+
+.order-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+
+
+
+.arrow {
+  /* position: absolute;
+  top: 0; */
+  transform: translate(-50%, -50%);
+  transform: rotate(90deg);
+}
+
+.arrow span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-bottom: 5px solid #ffffff;
+  border-right: 5px solid #ffffff;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
