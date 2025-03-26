@@ -1,6 +1,5 @@
 ** Todo Listesi **
 3. mcdonals add to card yapılak
-5. siparişiniz hazirlaniyor kısmı yapılcak
 8. dialog shomodal olunca still yemiyor backdrop nasıl çözülcek çözüm bak(olmuyor)
 10. ekle butonuna basınca açılan dialog en alta gidio en yukardayken eklesen bile
-11. supabasede düzenleme yap
+11. supabasede düzenleme yap(kod ve resim ekleme ve düzenleme)
