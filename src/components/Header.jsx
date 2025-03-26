@@ -71,14 +71,14 @@ export default function Header({setFilterCategory}) {
           )}
         </div>
         <div className="keyboard">
-          <span className="key">C</span>
+          <span className="key">K</span>
           <span className="key">A</span>
           <span className="key">M</span>
           <span className="key">P</span>
           <span className="key">A</span>
-          <span className="key">I</span>
-          <span className="key">G</span>
           <span className="key">N</span>
+          <span className="key">Y</span>
+          <span className="key">A</span>
         </div>
         <Carosel />
       </motion.header>

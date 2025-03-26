@@ -96,7 +96,7 @@ export default function Products({ filterCategory }) {
 
   return (
     <>
-      <h2>All Items</h2>
+      <h2>Ürünler</h2>
       <motion.div className="products-area"
         initial={{ opacity: 0, x: -100 }} 
         animate={{ opacity: 1, x: 0 }}    
@@ -118,7 +118,7 @@ export default function Products({ filterCategory }) {
                 <h6>{x.name}</h6>
                 <span>{x.price} ₺</span>
                 <div>
-                  <button onClick={() => handleProduct(x)}>+ Add</button>
+                  <button onClick={() => handleProduct(x)}>+ Ekle</button>
                 </div>
               </div>
             </motion.div>
@@ -156,7 +156,7 @@ export default function Products({ filterCategory }) {
     return (
       <div className="buttons">
         <button className="blob-btn" onClick={addToCart}>
-          DONE
+          Ekle
           <span className="blob-btn__inner">
             <span className="blob-btn__blobs">
               <span className="blob-btn__blob"></span>

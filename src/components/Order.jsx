@@ -39,15 +39,15 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
     <>
       <div className="basket">
         <div className="remove-btn">
-          <button onClick={() => setSelectedProduct([])}>Cancel</button>
+          <button onClick={() => setSelectedProduct([])}>İptal</button>
           <div className="border-bottom"></div>
         </div>
         <div className="order">
-          <h4>Your Order</h4>
+          <h4>Siparişlerin</h4>
           <span>{selectedProduct.length}</span>
           <span>{total} ₺</span>
         </div>
-        <button onClick={() => { kioskSystem(); dialogRef.current.showModal() }}>Go to cart</button>
+        <button onClick={() => { kioskSystem(); dialogRef.current.showModal() }}>Karta git</button>
 
       </div>
 
@@ -79,7 +79,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
             )}
           </ul>
           <div className="order-total">
-            <h6>Order Total</h6>
+            <h6>Toplam Sipariş Tutarı:</h6>
             <span>{total} ₺</span>
           </div>
           <div className="delivery-note">
@@ -89,7 +89,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           <div className="confirm-btn">
             <button className={`${isOnClick ? 'onclic' : ''} ${isValidate ? 'validate' : ''}`} onClick={handleClick}></button>
           </div>
-          <button className="cancel-btn" onClick={() => { setSelectedProduct([]) }}>Cancel</button>
+          <button className="cancel-btn" onClick={() => { setSelectedProduct([]) }}>Geri</button>
         </div>
       </dialog>
     </>
