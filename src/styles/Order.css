@@ -71,8 +71,8 @@
 .payment-dialog {
   padding: 34px;
   margin: auto;
-  box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);;
   border-radius: 22px;
+  border: 0;
 }
 .card-item {
   display: flex;

@@ -39,12 +39,14 @@ export default function Products({ filterCategory }) {
 
   function addToCart() {
     if (selectedProduct.find(x => x.id === cart.id)) {
+      const bug = selectedProduct.find(x => x.id === cart.id)
+      bug.count += cart.count
       setSelectedProduct([...selectedProduct]);
     } else {
       setSelectedProduct([...selectedProduct, { ...cart }])
     }
-    console.log(selectedProduct);
     handleCloseDialog();
+    setCart(null)
     setIsCancel(true)
   }
 
@@ -126,7 +128,7 @@ export default function Products({ filterCategory }) {
       </motion.div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
-          <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); }}><i className="fa-solid fa-xmark" ></i></button>
+          <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); setCart(null) }}><i className="fa-solid fa-xmark" ></i></button>
           {cart && (
             <div className="order-container">
               <img src={cart.img} alt="" className="auto" style={{ width: "400px", height: '400px' }} />
