@@ -238,3 +238,11 @@
   border: 1px solid #fe7701;
   background-color: inherit;
 }
+
+.receipt-dialog {
+  border: none;
+  border-radius: 24px;
+  margin-inline: auto;
+  top: 10%;
+
+}

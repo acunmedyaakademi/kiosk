@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "../styles/Order.css"
 import supabase from "../js/supabaseClient.js";
 import Receipt from "./Receipt.jsx";
+import { dialog } from "motion/react-client";
 
 export default function Order({ total, setSelectedProduct, setIsCancel, isCancel, selectedProduct }) {
   const [isOnClick, setIsOnClick] = useState(false);
@@ -9,6 +10,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
   const [orderNumber, setOrderNumber] = useState('');
   const dialogRef = useRef(null);
   const [isReceiptOpen, setIsReceiptOpen] = useState(false);
+  const [newOrderId, setNewOrderId] = useState(null);
 
 
   const handleClick = async () => {
@@ -18,6 +20,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
 
       const newOrderId = data[0].id;
       const orderItems = selectedProduct.map(product => ({order_id: newOrderId,product_id: product.id,created_at: new Date().toISOString()}));
+      setNewOrderId(newOrderId);
   
       const { error: detailError } = await supabase.from('order_details').insert(orderItems);
       if (detailError) throw detailError;
@@ -29,7 +32,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           setIsValidate(false);
           setSelectedProduct([]);
           dialogRef.current.close();
-        }, 1250);
+        }, 6500);
         setIsReceiptOpen(true)
       }, 2250);
   };
@@ -66,8 +69,11 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
 
       </div>
 
-
-
+      {isReceiptOpen ? (
+      <dialog className="receipt-dialog">
+        <Receipt newOrderId= {newOrderId} />
+      </dialog>
+      ):(
       <dialog ref={dialogRef} className="payment-dialog">
         <div className="dialog-order">
           <ul className="card-items">
@@ -99,10 +105,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           <button className="cancel-btn" onClick={() => { dialogRef.current.close() }}>Geri</button>
         </div>
       </dialog>
-      <Receipt />
-    </>
-
-    
-
+       )}
+    </> 
   )
 }
