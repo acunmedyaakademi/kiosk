@@ -274,6 +274,6 @@ button.active i {
 } */
 
 
-.flex button:nth-child(2) {
+.flex button:last-child {
   order: -1;
 }

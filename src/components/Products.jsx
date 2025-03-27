@@ -90,8 +90,8 @@ export default function Products({ filterCategory }) {
     }
   }
 
-  const filtered = filterCategory.id === undefined ? 7 : filterCategory.id;
-  // const filtered = filterCategory.id === "" ? null : filterCategory.id || 7;
+  const filtered = filterCategory.id === undefined ? 8 : filterCategory.id;
+  // const filtered = filterCategory.id === "" ? null : filterCategory.id || 8;
   console.log("Filtered ID:", filtered);
 
   return (
@@ -103,7 +103,7 @@ export default function Products({ filterCategory }) {
         transition={{ duration: 1 }}
       >
         {products
-          .filter(x => filtered === 7 || x.category_id === Number(filtered))
+          .filter(x => filtered === 8 || x.category_id === Number(filtered))
           .map((x, index) => (
             <motion.div
               className="product"

@@ -7,7 +7,8 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
   const [isOnClick, setIsOnClick] = useState(false);
   const [isValidate, setIsValidate] = useState(false);
   const [orderNumber, setOrderNumber] = useState('');
-  const dialogRef = useRef(null)
+  const dialogRef = useRef(null);
+  const [isReceiptOpen, setIsReceiptOpen] = useState(false);
 
 
   const handleClick = async () => {
@@ -29,6 +30,7 @@ export default function Order({ total, setSelectedProduct, setIsCancel, isCancel
           setSelectedProduct([]);
           dialogRef.current.close();
         }, 1250);
+        setIsReceiptOpen(true)
       }, 2250);
   };
 
