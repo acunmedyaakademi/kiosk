@@ -4,12 +4,14 @@ import "../styles/Products.css"
 import Order from "./Order";
 import { motion } from "motion/react"
 
+
 export default function Products({ filterCategory }) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState(null)
   const [isCancel, setIsCancel] = useState(false);
   const dialogRef = useRef(null);
+
 
 
 
@@ -128,10 +130,10 @@ export default function Products({ filterCategory }) {
       </motion.div>
       <dialog ref={dialogRef} className="order-dialog">
         <div className="relative">
-          <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); setCart(null) }}><i className="fa-solid fa-xmark" ></i></button>
+          <button className="close-btn" onClick={() => { handleCloseDialog(); isPriceNull(); setCart(null); }}><i className="fa-solid fa-xmark" ></i></button>
           {cart && (
             <div className="order-container">
-              <img src={cart.img} alt="" className="auto" style={{ width: "400px", height: '400px' }} />
+              <img src={cart.img} alt="" className="auto" style={{ height: '250px' }} />
               <div>
                 <h6>{cart.name}</h6>
                 <span>{cart.price} ₺</span>
